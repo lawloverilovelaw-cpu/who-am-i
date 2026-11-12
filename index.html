@@ -1,1 +1,188 @@
-hiiiiiiiiiiiiiii
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>who am i,you may wonder,I’m Yuan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f1fb; --surface:#ffffff; --ink:#1d1b3a; --muted:#5d5a7e;
+  --accent:#4b3fd6; --accent-ink:#ffffff; --pop:#ffcf4a; --line:#d9d5f0; --bad:#c62f4a;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#15142b; --surface:#201e40; --ink:#eceaff; --muted:#aaa6d0;
+    --accent:#7be0c3; --accent-ink:#15142b; --pop:#ffd86b; --line:#35325e; --bad:#ff8a9e; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15142b; --surface:#201e40; --ink:#eceaff; --muted:#aaa6d0;
+  --accent:#7be0c3; --accent-ink:#15142b; --pop:#ffd86b; --line:#35325e; --bad:#ff8a9e; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 "Hanken Grotesk",system-ui,sans-serif}
+main{max-width:46rem;margin:0 auto;padding:3rem 1.25rem 4rem}
+h1,h2{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.05;margin:0}
+h1{font-size:clamp(2.6rem,9vw,4.5rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.6rem;font-weight:600;margin-bottom:.75rem}
+.tag{font-size:1.2rem;color:var(--muted);margin:1rem 0 0;max-width:34rem}
+header{padding-bottom:2.5rem;border-bottom:3px solid var(--pop)}
+section{padding:2.25rem 0;border-bottom:1px solid var(--line)}
+p{margin:.5rem 0;max-width:40rem}
+.facts{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.facts li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.7rem 1rem}
+.facts b{font-weight:600}
+.project{background:var(--surface);border:2px solid var(--accent);border-radius:14px;padding:1.5rem}
+.project h2{margin-bottom:.4rem}
+.btn{display:inline-block;margin-top:.9rem;background:var(--accent);color:var(--accent-ink);font:600 1rem "Hanken Grotesk",system-ui,sans-serif;
+  text-decoration:none;padding:.7rem 1.3rem;border-radius:8px;border:0;cursor:pointer}
+.btn:hover{filter:brightness(1.1)}
+.btn:disabled{opacity:.45;cursor:not-allowed;filter:none}
+a:focus-visible,.btn:focus-visible,input:focus-visible{outline:3px solid var(--pop);outline-offset:3px}
+.contact a{color:var(--accent);font-weight:600}
+footer{padding-top:1.75rem;color:var(--muted);font-size:.9rem}
+
+/* Quiz gate */
+#gate{position:fixed;inset:0;z-index:100;background:var(--bg);overflow-y:auto;
+  padding:calc(2rem + env(safe-area-inset-top,0px)) 1.25rem calc(2rem + env(safe-area-inset-bottom,0px))}
+#gate .box{max-width:34rem;margin:0 auto}
+#gate h1{font-size:clamp(2rem,7vw,3rem)}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem;margin:1rem 0}
+.q legend{font-weight:600;padding:0 .3rem}
+.q label{display:block;padding:.35rem .2rem;cursor:pointer}
+.q input{margin-right:.5rem;accent-color:var(--accent)}
+#msg{min-height:1.6rem;font-weight:600}
+#msg.bad{color:var(--bad)}
+.hidden{display:none}
+</style>
+</head>
+<body>
+
+<!-- QUIZ GATE: visitors must pass this to see the website -->
+<div id="gate">
+  <div class="box">
+    <h1>Do you know me?</h1>
+    <p class="tag">Answer all 3 questions to enter. If you fail, refresh the page and try again.</p>
+    <form id="quiz" onsubmit="return false"></form>
+    <p id="msg" role="status"></p>
+    <button class="btn" id="check" type="button">Enter</button>
+  </div>
+</div>
+
+<main id="site" class="hidden">
+
+<!-- EDIT: your name and one-line intro -->
+<header>
+  <h1>Im yuan the creator of base siege</h1>
+  <p class="tag">you might know me in real life,but most people know me by the games i created,or from ur friendp>
+</header>
+
+<!-- EDIT: quick facts -->
+<section id="facts">
+  <h2>Quick facts</h2>
+  <ul class="facts">
+    <li><b>i'm sec 2</li>
+  <li>when i created most of the game</li>
+</section>
+<section id="project">
+  <h2>My project</h2>
+  <div class="project">
+    <h2>Fortressed</h2>
+    <p>[Describe your project in a sentence or two.]</p>
+    <a class="btn" href="https://fortressed.onrender.com" target="_blank" rel="noopener">Visit Fortressed</a>
+  </div>
+</section>
+
+<!-- EDIT: how people can reach you -->
+<section id="contact" class="contact">
+  <h2>Say hi</h2>
+  <p>[Tell visitors how to reach you, for example: Discord <b>yourname</b>, or <a href="mailto:you@example.com">you@example.com</a>.]</p>
+</section>
+
+<footer>Made by [Your Name]</footer>
+</main>
+
+<script>
+/* EDIT HERE: your 3 questions.
+   "answer" is the number of the correct option (1 to 4). */
+var QUESTIONS = [
+  {
+    q: "Which game is mine?",
+    options: ["Tribe Defence", "Drift Bloom", "Chero", "Base Siege"],
+    answer: 4
+  },
+  {
+    q: "[Question 2: write your question]",
+    options: ["[Option 1]", "[Option 2]", "[Option 3]", "[Option 4]"],
+    answer: 1
+  },
+  {
+    q: "[Question 3: write your question]",
+    options: ["[Option 1]", "[Option 2]", "[Option 3]", "[Option 4]"],
+    answer: 1
+  }
+];
+
+var KEY = "intro_quiz_passed";
+var gate = document.getElementById("gate");
+var site = document.getElementById("site");
+var quiz = document.getElementById("quiz");
+var msg  = document.getElementById("msg");
+var btn  = document.getElementById("check");
+
+function unlock(){
+  gate.classList.add("hidden");
+  site.classList.remove("hidden");
+}
+
+// Already passed on this device? Skip the quiz.
+var passed = false;
+try { passed = localStorage.getItem(KEY) === "yes"; } catch (e) {}
+if (passed) { unlock(); }
+
+// Build the questions
+QUESTIONS.forEach(function(item, i){
+  var fs = document.createElement("fieldset");
+  fs.className = "q";
+  var html = "<legend>" + (i + 1) + ". " + item.q + "</legend>";
+  item.options.forEach(function(opt, j){
+    html += '<label><input type="radio" name="q' + i + '" value="' + (j + 1) + '"> ' + opt + "</label>";
+  });
+  fs.innerHTML = html;
+  quiz.appendChild(fs);
+});
+
+btn.addEventListener("click", function(){
+  var wrong = 0, unanswered = 0;
+  QUESTIONS.forEach(function(item, i){
+    var picked = quiz.querySelector('input[name="q' + i + '"]:checked');
+    if (!picked) { unanswered++; return; }
+    if (Number(picked.value) !== item.answer) { wrong++; }
+  });
+
+  if (unanswered) {
+    msg.className = "bad";
+    msg.textContent = "Answer all 3 questions first.";
+    return;
+  }
+
+  if (wrong) {
+    // Failed: lock everything. The visitor must refresh the page to try again.
+    quiz.querySelectorAll("input").forEach(function(el){ el.disabled = true; });
+    btn.disabled = true;
+    msg.className = "bad";
+    msg.textContent = "Not quite. Refresh the page to try again.";
+    return;
+  }
+
+  try { localStorage.setItem(KEY, "yes"); } catch (e) {}
+  unlock();
+});
+</script>
+</body>
+</html>
