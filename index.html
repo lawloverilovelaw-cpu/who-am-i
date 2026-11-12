@@ -5,250 +5,280 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Welcome</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#15142b; --surface:#201e40; --ink:#eceaff; --muted:#aaa6d0;
-  --accent:#7be0c3; --accent-ink:#15142b; --pop:#ffd86b; --line:#35325e; --bad:#ff8a9e;
+  --bg:#020503; --panel:#07110a; --green:#00ff66; --dim:#12a24c; --line:#0d3a1d; --bad:#ff4d4d;
   color-scheme:dark; box-sizing:border-box;
-}
-@media (prefers-color-scheme:light){
-  :root:not([data-theme="dark"]){
-    --bg:#f3f1fb; --surface:#ffffff; --ink:#1d1b3a; --muted:#5d5a7e;
-    --accent:#4b3fd6; --accent-ink:#ffffff; --pop:#e8a900; --line:#d9d5f0; --bad:#c62f4a;
-    color-scheme:light;
-  }
-}
-:root[data-theme="light"]{
-  --bg:#f3f1fb; --surface:#ffffff; --ink:#1d1b3a; --muted:#5d5a7e;
-  --accent:#4b3fd6; --accent-ink:#ffffff; --pop:#e8a900; --line:#d9d5f0; --bad:#c62f4a; color-scheme:light;
 }
 *{box-sizing:border-box}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 "Hanken Grotesk",system-ui,sans-serif}
-h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.05;margin:0}
-p{margin:.5rem 0;max-width:40rem}
+body{margin:0;background:var(--bg);color:var(--green);
+  font:400 1rem/1.7 "Fira Code",ui-monospace,Menlo,Consolas,monospace;
+  text-shadow:0 0 6px rgba(0,255,102,.35)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:300;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
+h1,h2,h3{font-weight:700;margin:0;line-height:1.2}
+p{margin:.4rem 0;max-width:42rem}
 .hidden{display:none !important}
-.btn{display:inline-block;margin-top:.9rem;background:var(--accent);color:var(--accent-ink);font:600 1rem "Hanken Grotesk",system-ui,sans-serif;
-  text-decoration:none;padding:.7rem 1.3rem;border-radius:8px;border:0;cursor:pointer}
-.btn:hover{filter:brightness(1.1)}
-.btn:disabled{opacity:.45;cursor:not-allowed;filter:none}
-a:focus-visible,.btn:focus-visible,input:focus-visible{outline:3px solid var(--pop);outline-offset:3px}
+.dim{color:var(--dim)}
+.cursor::after{content:"█";margin-left:.2em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.btn{display:inline-block;margin-top:.8rem;background:transparent;color:var(--green);border:1px solid var(--green);
+  font:500 1rem "Fira Code",ui-monospace,monospace;padding:.55rem 1.1rem;text-decoration:none;cursor:pointer;
+  text-shadow:inherit}
+.btn:hover{background:var(--green);color:var(--bg);text-shadow:none}
+.btn:disabled{opacity:.4;cursor:not-allowed;background:transparent;color:var(--green)}
+a{color:var(--green)}
+a:focus-visible,.btn:focus-visible,input:focus-visible{outline:2px solid var(--green);outline-offset:3px}
 
-/* ---------- Intro animation ---------- */
-#intro{position:fixed;inset:0;z-index:200;display:grid;place-items:center;overflow:hidden;pointer-events:all}
-#intro .panel{position:absolute;left:0;right:0;height:50.5%;background:var(--bg);
-  transition:transform .9s cubic-bezier(.77,0,.18,1)}
-#intro .top{top:0}
-#intro .bot{bottom:0}
-#intro.open .top{transform:translateY(-101%)}
-#intro.open .bot{transform:translateY(101%)}
-#intro .center{position:relative;z-index:2;text-align:center;padding:0 1rem;
-  transition:opacity .35s ease}
-#intro.open .center{opacity:0}
-#intro .hello{color:var(--muted);font-size:1.1rem;margin:0 0 .6rem;opacity:0;animation:fade .6s .2s forwards}
-#introName{font:800 clamp(2.6rem,12vw,6.5rem)/1 "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.02em;
-  display:flex;flex-wrap:wrap;justify-content:center}
-#introName span{display:inline-block;opacity:0;transform:translateY(60%) rotate(6deg);
-  animation:rise .6s cubic-bezier(.2,.9,.3,1.2) forwards}
-#introName .sp{width:.3em}
-.bar{width:min(16rem,70vw);height:4px;background:var(--line);border-radius:4px;margin:1.6rem auto 0;overflow:hidden}
-.bar i{display:block;height:100%;width:0;background:var(--pop);animation:load 2.1s .5s ease-in-out forwards}
-@keyframes rise{to{opacity:1;transform:none}}
-@keyframes fade{to{opacity:1}}
-@keyframes load{to{width:100%}}
+/* Boot screen */
+#intro{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;align-items:center;
+  padding:1.5rem calc(1.25rem + env(safe-area-inset-right,0px)) 1.5rem calc(1.25rem + env(safe-area-inset-left,0px));
+  transition:opacity .6s ease}
+#intro.off{opacity:0;pointer-events:none}
+#boot{max-width:40rem;margin:0 auto;width:100%;min-height:9rem;white-space:pre-wrap}
 
-/* ---------- Quiz gate ---------- */
+/* Quiz */
 #gate{position:fixed;inset:0;z-index:100;background:var(--bg);overflow-y:auto;
   padding:calc(2rem + env(safe-area-inset-top,0px)) 1.25rem calc(2rem + env(safe-area-inset-bottom,0px))}
-#gate .box{max-width:34rem;margin:0 auto}
-#gate h1{font-size:clamp(2rem,7vw,3rem)}
-.tag{font-size:1.2rem;color:var(--muted);margin:1rem 0 0;max-width:34rem}
-.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem;margin:1rem 0}
-.q legend{font-weight:600;padding:0 .3rem}
-.q label{display:block;padding:.35rem .2rem;cursor:pointer}
-.q input{margin-right:.5rem;accent-color:var(--accent)}
-#msg{min-height:1.6rem;font-weight:600}
-#msg.bad{color:var(--bad)}
+#gate .box{max-width:36rem;margin:0 auto}
+#gate h1{font-size:clamp(1.5rem,6vw,2.2rem)}
+.q{border:1px solid var(--line);background:var(--panel);padding:1rem 1.1rem;margin:1rem 0}
+.q legend{font-weight:700;padding:0 .4rem}
+.q label{display:block;padding:.3rem 0;cursor:pointer}
+.q input{margin-right:.6rem;accent-color:var(--green)}
+#msg{min-height:1.7rem;font-weight:700}
+#msg.bad{color:var(--bad);text-shadow:0 0 6px rgba(255,77,77,.4)}
 
-/* ---------- Website ---------- */
-main{max-width:46rem;margin:0 auto;padding:calc(3rem + env(safe-area-inset-top,0px)) 1.25rem calc(4rem + env(safe-area-inset-bottom,0px))}
-main h1{font-size:clamp(2.6rem,9vw,4.5rem);font-weight:800;letter-spacing:-.02em}
-main h2{font-size:1.6rem;font-weight:600;margin-bottom:.75rem}
-header{padding-bottom:2.5rem;border-bottom:3px solid var(--pop)}
-section{padding:2.25rem 0;border-bottom:1px solid var(--line)}
+/* Website */
+main{max-width:48rem;margin:0 auto;
+  padding:calc(2.5rem + env(safe-area-inset-top,0px)) 1.25rem calc(4rem + env(safe-area-inset-bottom,0px))}
+header{padding-bottom:2rem;border-bottom:1px dashed var(--dim)}
+header h1{font-size:clamp(2rem,8vw,3.6rem);letter-spacing:-.02em}
+section{padding:2rem 0;border-bottom:1px dashed var(--line)}
+section h2{font-size:1.3rem;margin-bottom:.8rem}
 .games{display:grid;gap:1rem}
-.game{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:1.25rem 1.4rem}
-.game.main{border-color:var(--accent)}
-.game h3{font-size:1.35rem;font-weight:600}
-.game p{color:var(--muted)}
-.contact a{color:var(--accent);font-weight:600}
-footer{padding-top:1.75rem;color:var(--muted);font-size:.9rem}
+.game{border:1px solid var(--green);background:var(--panel);padding:1.1rem 1.25rem}
+.game h3{font-size:1.15rem}
+.game p{color:var(--dim)}
+.contact-list{list-style:none;padding:0;margin:0}
+.contact-list li{padding:.25rem 0}
+footer{padding-top:1.5rem;color:var(--dim);font-size:.9rem}
 
 @media (prefers-reduced-motion:reduce){
-  #introName span,#intro .hello{animation-duration:.01s;animation-delay:0s}
-  .bar i{animation-duration:.01s;animation-delay:0s}
-  #intro .panel,#intro .center{transition-duration:.01s}
+  .cursor::after{animation:none}
+  #intro{transition:none}
 }
 </style>
 </head>
 <body>
 
-<!-- INTRO ANIMATION -->
-<div id="intro" aria-hidden="true">
-  <div class="panel top"></div>
-  <div class="panel bot"></div>
-  <div class="center">
-    <p class="hello">Welcome, I’m</p>
-    <div id="introName"></div>
-    <div class="bar"><i></i></div>
-  </div>
-</div>
+<div id="intro" aria-hidden="true"><div id="boot" class="cursor"></div></div>
 
-<!-- QUIZ GATE -->
 <div id="gate" class="hidden">
   <div class="box">
-    <h1>Do you know me?</h1>
-    <p class="tag">Answer all 3 questions to enter. If you fail, refresh the page and try again.</p>
+    <h1>&gt; ACCESS CHECK</h1>
+    <p class="dim">Answer all 3 questions to get in. If you fail, refresh the page and try again.</p>
     <form id="quiz" onsubmit="return false"></form>
     <p id="msg" role="status"></p>
-    <button class="btn" id="check" type="button">Enter</button>
+    <button class="btn" id="check" type="button">[ enter ]</button>
   </div>
 </div>
 
-<!-- WEBSITE -->
 <main id="site" class="hidden">
-
-  <!-- Your name -->
   <header>
-    <h1 id="siteName">[Your Name]</h1>
-    <p class="tag">[One short line about you.]</p>
+    <h1 id="siteName"></h1>
+    <p class="dim" id="siteTagline"></p>
   </header>
-
-  <!-- EDIT: your comment about yourself -->
-  <section id="about">
-    <h2>About me</h2>
-    <p>[Write your comment about yourself here. Say who you are and what you enjoy.]</p>
-    <p>[Add more if you want: your story, your goals, or why you make games.]</p>
+  <section>
+    <h2>&gt; about</h2>
+    <div id="aboutBox"></div>
   </section>
-
-  <!-- EDIT: your games -->
-  <section id="games">
-    <h2>My games</h2>
-    <div class="games">
-      <div class="game main">
-        <h3>Fortressed</h3>
-        <p>[Describe Fortressed in a sentence or two.]</p>
-        <a class="btn" href="https://fortressed.onrender.com" target="_blank" rel="noopener">Play Fortressed</a>
-      </div>
-      <div class="game">
-        <h3>Base Siege</h3>
-        <p>[Describe Base Siege in a sentence or two.]</p>
-        <!-- Add a link: <a class="btn" href="https://..." target="_blank" rel="noopener">Play Base Siege</a> -->
-      </div>
-      <div class="game">
-        <h3>[Another game]</h3>
-        <p>[Describe it here, or delete this box.]</p>
-      </div>
-    </div>
+  <section>
+    <h2>&gt; my_games</h2>
+    <div class="games" id="gamesBox"></div>
   </section>
-
-  <!-- EDIT: contact -->
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>[Tell visitors how to reach you, for example: Discord <b>yourname</b>, or <a href="mailto:you@example.com">you@example.com</a>.]</p>
+  <section>
+    <h2>&gt; contact</h2>
+    <ul class="contact-list" id="contactBox"></ul>
   </section>
-
-  <footer>Made by <span id="footName">[Your Name]</span></footer>
+  <footer id="footer"></footer>
 </main>
 
 <script>
-/* ===== EDIT THESE ===== */
-var NAME = "Your Name";     // shown in the intro animation and on the page
-var USE_QUIZ = true;        // set to false to skip the quiz
+/* ==========================================================
+   EDIT EVERYTHING HERE. You don't need to touch anything below.
+   ========================================================== */
+var CONFIG = {
 
-/* Your 3 questions. "answer" = number of the correct option (1 to 4). */
-var QUESTIONS = [
-  { q: "Which game is mine?",
-    options: ["Tribe Defence", "Drift Bloom", "Chero", "Base Siege"], answer: 4 },
-  { q: "[Question 2: write your question]",
-    options: ["[Option 1]", "[Option 2]", "[Option 3]", "[Option 4]"], answer: 1 },
-  { q: "[Question 3: write your question]",
-    options: ["[Option 1]", "[Option 2]", "[Option 3]", "[Option 4]"], answer: 1 }
-];
-/* ====================== */
+  // Your name (shown in the boot screen and at the top of the page)
+  name: "Your Name",
 
-var KEY = "intro_quiz_passed";
-var intro = document.getElementById("intro");
-var gate  = document.getElementById("gate");
-var site  = document.getElementById("site");
-var quiz  = document.getElementById("quiz");
-var msg   = document.getElementById("msg");
-var btn   = document.getElementById("check");
+  // One short line under your name
+  tagline: "[One short line about you.]",
 
-document.title = NAME;
-document.getElementById("siteName").textContent = NAME;
-document.getElementById("footName").textContent = NAME;
+  // Your comment about yourself. Add or remove lines, each one is a paragraph.
+  about: [
+    "[Write your comment about yourself here.]",
+    "[Add another paragraph if you want, or delete this line.]"
+  ],
 
-// Build the animated name, one letter at a time
-var nameBox = document.getElementById("introName");
-NAME.split("").forEach(function(ch, i){
-  var s = document.createElement("span");
-  if (ch === " ") { s.className = "sp"; s.innerHTML = "&nbsp;"; }
-  else { s.textContent = ch; }
-  s.style.animationDelay = (0.5 + i * 0.07) + "s";
-  nameBox.appendChild(s);
-});
+  // Your games. Copy a { ... }, block to add another one.
+  // Leave link as "" if the game has no link yet.
+  games: [
+    { title: "Fortressed", text: "[Describe Fortressed.]", link: "https://fortressed.onrender.com" },
+    { title: "Base Siege", text: "[Describe Base Siege.]", link: "" }
+  ],
 
-function showSite(){
-  gate.classList.add("hidden");
-  site.classList.remove("hidden");
-}
+  // Contact lines. "link" is optional (use "mailto:you@example.com" for email).
+  contact: [
+    { label: "Discord", value: "yourname", link: "" },
+    { label: "Email",   value: "you@example.com", link: "mailto:you@example.com" }
+  ],
 
-var passed = false;
-try { passed = localStorage.getItem(KEY) === "yes"; } catch (e) {}
+  // Quiz: set to false to let everyone in without questions.
+  useQuiz: true,
 
-// After the animation: open the doors, then show the quiz or the site
-setTimeout(function(){
-  if (!USE_QUIZ || passed) { showSite(); } else { gate.classList.remove("hidden"); }
-  intro.classList.add("open");
-  setTimeout(function(){ intro.classList.add("hidden"); }, 1000);
-}, 3000);
+  // answer = number of the correct option (1 to 4)
+  questions: [
+    { q: "Which game is mine?",
+      options: ["Tribe Defence", "Drift Bloom", "Chero", "Base Siege"], answer: 4 },
+    { q: "[Question 2]",
+      options: ["[Option 1]", "[Option 2]", "[Option 3]", "[Option 4]"], answer: 1 },
+    { q: "[Question 3]",
+      options: ["[Option 1]", "[Option 2]", "[Option 3]", "[Option 4]"], answer: 1 }
+  ],
 
-// Build the questions
-QUESTIONS.forEach(function(item, i){
-  var fs = document.createElement("fieldset");
-  fs.className = "q";
-  var html = "<legend>" + (i + 1) + ". " + item.q + "</legend>";
-  item.options.forEach(function(opt, j){
-    html += '<label><input type="radio" name="q' + i + '" value="' + (j + 1) + '"> ' + opt + "</label>";
-  });
-  fs.innerHTML = html;
-  quiz.appendChild(fs);
-});
+  // Text typed on the boot screen. Use {name} to insert your name.
+  bootLines: [
+    "> booting system...",
+    "> loading profile: {name}",
+    "> checking visitor...",
+    "> welcome."
+  ]
+};
+/* ========================================================== */
 
-btn.addEventListener("click", function(){
-  var wrong = 0, unanswered = 0;
-  QUESTIONS.forEach(function(item, i){
-    var picked = quiz.querySelector('input[name="q' + i + '"]:checked');
-    if (!picked) { unanswered++; return; }
-    if (Number(picked.value) !== item.answer) { wrong++; }
-  });
-  if (unanswered) {
-    msg.className = "bad";
-    msg.textContent = "Answer all 3 questions first.";
-    return;
+(function(){
+  var C = CONFIG;
+  var KEY = "intro_quiz_passed";
+  var $ = function(id){ return document.getElementById(id); };
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function el(tag, cls, text){
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
   }
-  if (wrong) {
-    quiz.querySelectorAll("input").forEach(function(el){ el.disabled = true; });
-    btn.disabled = true;
-    msg.className = "bad";
-    msg.textContent = "Not quite. Refresh the page to try again.";
-    return;
+
+  /* Fill the page from CONFIG */
+  document.title = C.name;
+  $("siteName").textContent = C.name;
+  $("siteTagline").textContent = C.tagline;
+  $("footer").textContent = "© " + C.name;
+
+  C.about.forEach(function(t){ $("aboutBox").appendChild(el("p", "", t)); });
+
+  C.games.forEach(function(g){
+    var box = el("div", "game");
+    box.appendChild(el("h3", "", g.title));
+    box.appendChild(el("p", "", g.text));
+    if (g.link) {
+      var a = el("a", "btn", "[ play " + g.title + " ]");
+      a.href = g.link; a.target = "_blank"; a.rel = "noopener";
+      box.appendChild(a);
+    }
+    $("gamesBox").appendChild(box);
+  });
+
+  C.contact.forEach(function(c){
+    var li = el("li");
+    li.appendChild(el("span", "dim", c.label + ": "));
+    if (c.link) {
+      var a = el("a", "", c.value);
+      a.href = c.link; a.target = "_blank"; a.rel = "noopener";
+      li.appendChild(a);
+    } else {
+      li.appendChild(document.createTextNode(c.value));
+    }
+    $("contactBox").appendChild(li);
+  });
+
+  /* Quiz */
+  var quiz = $("quiz"), msg = $("msg"), btn = $("check");
+  C.questions.forEach(function(item, i){
+    var fs = el("fieldset", "q");
+    fs.appendChild(el("legend", "", (i + 1) + ". " + item.q));
+    item.options.forEach(function(opt, j){
+      var lab = el("label");
+      var inp = document.createElement("input");
+      inp.type = "radio"; inp.name = "q" + i; inp.value = String(j + 1);
+      lab.appendChild(inp);
+      lab.appendChild(document.createTextNode(opt));
+      fs.appendChild(lab);
+    });
+    quiz.appendChild(fs);
+  });
+
+  function showSite(){
+    $("gate").classList.add("hidden");
+    $("site").classList.remove("hidden");
   }
-  try { localStorage.setItem(KEY, "yes"); } catch (e) {}
-  showSite();
-});
+
+  btn.addEventListener("click", function(){
+    var wrong = 0, blank = 0;
+    C.questions.forEach(function(item, i){
+      var p = quiz.querySelector('input[name="q' + i + '"]:checked');
+      if (!p) { blank++; return; }
+      if (Number(p.value) !== item.answer) wrong++;
+    });
+    if (blank) {
+      msg.className = "bad";
+      msg.textContent = "ERROR: answer all " + C.questions.length + " questions.";
+      return;
+    }
+    if (wrong) {
+      quiz.querySelectorAll("input").forEach(function(x){ x.disabled = true; });
+      btn.disabled = true;
+      msg.className = "bad";
+      msg.textContent = "ACCESS DENIED. Refresh the page to try again.";
+      return;
+    }
+    try { localStorage.setItem(KEY, "yes"); } catch (e) {}
+    showSite();
+  });
+
+  /* Boot animation: types each line, then opens the site or the quiz */
+  var boot = $("boot");
+  var lines = C.bootLines.map(function(l){ return l.replace("{name}", C.name); });
+  var speed = reduce ? 1 : 28;
+  var li = 0, ci = 0, shown = "";
+
+  function finish(){
+    var passed = false;
+    try { passed = localStorage.getItem(KEY) === "yes"; } catch (e) {}
+    if (!C.useQuiz || passed) showSite(); else $("gate").classList.remove("hidden");
+    $("intro").classList.add("off");
+    setTimeout(function(){ $("intro").classList.add("hidden"); }, 700);
+  }
+
+  function tick(){
+    if (li >= lines.length) { setTimeout(finish, reduce ? 0 : 600); return; }
+    var line = lines[li];
+    if (ci < line.length) {
+      ci++;
+      boot.textContent = shown + line.slice(0, ci);
+      setTimeout(tick, speed);
+    } else {
+      shown += line + "\n";
+      li++; ci = 0;
+      setTimeout(tick, reduce ? 0 : 280);
+    }
+  }
+  tick();
+})();
 </script>
 </body>
 </html>
