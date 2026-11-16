@@ -18,4 +18,7 @@ const SONGS=[
   {id:'Killstreak_Anthem_-_Music_for_FlameFrags.mp3',file:BASE+'Killstreak_Anthem_-_Music_for_FlameFrags.mp3', name:'KILLSTREAK ANTHEM', character:'Flamefrags'},
   {id:'Scorched_Earth_Symphony_-_Music_for_FlameFrags.mp3',file:BASE+'Scorched_Earth_Symphony_-_Music_for_FlameFrags.mp3', name:'SCORCHED EARTH SYMPHONY', character:'Flamefrags'},
   {id:'Kyon_-_Sorcery_Ring__unstable_universe_music.mp3',file:BASE+'Kyon_-_Sorcery_Ring__unstable_universe_music.mp3', name:'KYON - SORCERY RING (UNSTABLE UNIVERSE MUSIC)', character:'Jadenman'},
+  {id:'Music_For_Jadenman_Trident_Ascension.mp3',file:BASE+'Music_For_Jadenman_Trident_Ascension.mp3', name:'MUSIC FOR JADENMAN - TRIDENT ASCENSION', character:'Jadenman'},
+  {id:'Jaden_MAN_Death_scene_Song_Final_Stand.mp3',file:BASE+'Jaden_MAN_Death_scene_Song_Final_Stand.mp3', name:'JADEN MAN DEATH SCENE SONG - FINAL STAND', character:'Jadenman'},
+  {id:'TheobaldTheBird_UNSTABLE_Theme_They_Run_-_Jose_Barrios_1.mp3',file:BASE+'TheobaldTheBird_UNSTABLE_Theme_They_Run_-_Jose_Barrios_1.mp3', name:'THEOBALDTHEBIRD UNSTABLE THEME - THEY RUN (JOSE BARRIOS)', character:'TheobaldTheBird'},
 ];
