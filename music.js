@@ -26,4 +26,5 @@ const SONGS=[
   {id:'Born_to_win_-_Updated_-_Minecraft_Music_for_ClownPierce.mp3',file:BASE+'Born_to_win_-_Updated_-_Minecraft_Music_for_ClownPierce.mp3', name:"BORN TO WIN (UPDATED)", character:'ClownPierce'},
   {id:'Chased_by_fate_-_Minecraft_music_for_ClownPierce.mp3',file:BASE+'Chased_by_fate_-_Minecraft_music_for_ClownPierce.mp3', name:"CHASED BY FATE", character:'ClownPierce'},
   {id:'Ringmasters_Requiem_-_Minecraft_music_for_ClownPierce.mp3',file:BASE+'Ringmasters_Requiem_-_Minecraft_music_for_ClownPierce.mp3', name:"RINGMASTER'S REQUIEM", character:'ClownPierce'},
+  {id:'ManePears_Official_Theme_Song.mp3',file:BASE+'ManePears_Official_Theme_Song.mp3', name:"MANEPEAR'S OFFICIAL THEME SONG", character:'ManePear'},
 ];
