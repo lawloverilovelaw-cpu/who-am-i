@@ -27,4 +27,8 @@ const SONGS=[
   {id:'Chased_by_fate_-_Minecraft_music_for_ClownPierce.mp3',file:BASE+'Chased_by_fate_-_Minecraft_music_for_ClownPierce.mp3', name:"CHASED BY FATE", character:'ClownPierce'},
   {id:'Ringmasters_Requiem_-_Minecraft_music_for_ClownPierce.mp3',file:BASE+'Ringmasters_Requiem_-_Minecraft_music_for_ClownPierce.mp3', name:"RINGMASTER'S REQUIEM", character:'ClownPierce'},
   {id:'ManePears_Official_Theme_Song.mp3',file:BASE+'ManePears_Official_Theme_Song.mp3', name:"MANEPEAR'S OFFICIAL THEME SONG", character:'ManePear'},
+  {id:'Song_For_Spokeishere_Exploited_Official_Music_Visualizer.mp3',file:BASE+'Song_For_Spokeishere_Exploited_Official_Music_Visualizer.mp3', name:"SONG FOR SPOKEISHERE - EXPLOITED", character:'Spoke'},
+  {id:'Spokes_ThemeThe_Wormhole.mp3',file:BASE+'Spokes_ThemeThe_Wormhole.mp3', name:"SPOKE'S THEME - THE WORMHOLE", character:'Spoke'},
+  {id:'Song_for_Parrot_As_Everything_Stood.mp3',file:BASE+'Song_for_Parrot_As_Everything_Stood.mp3', name:"SONG FOR PARROT - AS EVERYTHING STOOD", character:'Parrot'},
+  {id:'Song_For_Parrot_A_Moment_of_Silence.mp3',file:BASE+'Song_For_Parrot_A_Moment_of_Silence.mp3', name:"SONG FOR PARROT - A MOMENT OF SILENCE", character:'Parrot'},
 ];
