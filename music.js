@@ -2,7 +2,7 @@
 // Set BASE to the folder that holds your mp3s (raw link, must end with /), e.g.
 //   https://raw.githubusercontent.com/YOUR_NAME/YOUR_REPO/main/music/
 // To add a song: upload the mp3 to that folder, then add one line below.
-const BASE='https://raw.githubusercontent.com/lawloverilovelaw-cpu/wo-am-i/main/music/';
+const BASE='https://raw.githubusercontent.com/lawloverilovelaw-cpu/who-am-i/main/music/';
 const SONGS=[
   {id:'Song_For_Wemmbu_PLAYFUL_MASSACRE.mp3',file:BASE+'Song_For_Wemmbu_PLAYFUL_MASSACRE.mp3', name:'Song For Wemmbu - PLAYFUL MASSACRE', character:'Wemmbu'},
   {id:'Song_For_Wemmbu_PLAYING_WITH_FIRE.mp3',file:BASE+'Song_For_Wemmbu_PLAYING_WITH_FIRE.mp3', name:'Song For Wemmbu - PLAYING WITH FIRE', character:'Wemmbu'},
