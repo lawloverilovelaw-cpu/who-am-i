@@ -21,4 +21,9 @@ const SONGS=[
   {id:'Music_For_Jadenman_Trident_Ascension.mp3',file:BASE+'Music_For_Jadenman_Trident_Ascension.mp3', name:'MUSIC FOR JADENMAN - TRIDENT ASCENSION', character:'Jadenman'},
   {id:'Jaden_MAN_Death_scene_Song_Final_Stand.mp3',file:BASE+'Jaden_MAN_Death_scene_Song_Final_Stand.mp3', name:'JADEN MAN DEATH SCENE SONG - FINAL STAND', character:'Jadenman'},
   {id:'TheobaldTheBird_UNSTABLE_Theme_They_Run_-_Jose_Barrios_1.mp3',file:BASE+'TheobaldTheBird_UNSTABLE_Theme_They_Run_-_Jose_Barrios_1.mp3', name:'THEOBALDTHEBIRD UNSTABLE THEME - THEY RUN (JOSE BARRIOS)', character:'TheobaldTheBird'},
+  {id:'ClownPierces_Official_Theme_Song_-_Updated.mp3',file:BASE+'ClownPierces_Official_Theme_Song_-_Updated.mp3', name:"CLOWNPIERCE'S OFFICIAL THEME SONG (UPDATED)", character:'ClownPierce'},
+  {id:'Combat_Carousel_-_Minecraft_Music_for_ClownPierce.mp3',file:BASE+'Combat_Carousel_-_Minecraft_Music_for_ClownPierce.mp3', name:"COMBAT CAROUSEL", character:'ClownPierce'},
+  {id:'Born_to_win_-_Updated_-_Minecraft_Music_for_ClownPierce.mp3',file:BASE+'Born_to_win_-_Updated_-_Minecraft_Music_for_ClownPierce.mp3', name:"BORN TO WIN (UPDATED)", character:'ClownPierce'},
+  {id:'Chased_by_fate_-_Minecraft_music_for_ClownPierce.mp3',file:BASE+'Chased_by_fate_-_Minecraft_music_for_ClownPierce.mp3', name:"CHASED BY FATE", character:'ClownPierce'},
+  {id:'Ringmasters_Requiem_-_Minecraft_music_for_ClownPierce.mp3',file:BASE+'Ringmasters_Requiem_-_Minecraft_music_for_ClownPierce.mp3', name:"RINGMASTER'S REQUIEM", character:'ClownPierce'},
 ];
